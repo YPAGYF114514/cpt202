@@ -71,7 +71,20 @@
 <body>
     <div class="bg-image">
         <div class="input-container">
+            
             <!--<h1>New Team</h1>-->
+            <!--<form th:action="@{/team/add}" method="POST" th:object="${team}">
+                <div>
+                    <input type="text" th:field="*{name}" id="name" name="name" placeholder="Phone Number">
+                </div>
+                <div>
+                    <input type="password" th:field="*{memberCount}" id="count" name="count" placeholder="Password">                
+                </div>
+                <div>
+                    <button type="submit"> Login</button>
+                </div>
+            </form>-->
+
             <form th:action="@{/team/add}" method="POST" th:object="${team}">
                 <div>
                     <input type="text" th:field="*{name}" id="name" name="name" placeholder="Phone Number">
