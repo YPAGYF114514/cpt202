@@ -9,7 +9,7 @@ public class LoginController {
 
     @GetMapping("/")
     public String home(Model model){
-        model.addAttribute("username", "Thomas");
+        model.addAttribute("petAccount", "Thomas");
         return "home";
     }
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .bg-image {
+            background-image: url("/Users/gaoyufeng/Desktop/未命名文件夹 2/src/main/resources/templates/bg.png");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            block-size: 100%;
+            inline-size: 100%;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height:120%;
+        }
+
+        input[type=text] {
+            width: 140%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            text-align: left;
+        }
+        input[type=password] {
+            width: 140%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        button {
+            position: relative;
+            inset-inline-start: 70px;
+            
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+          
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image">
+        <div class="input-container">
+            
+            <!--<h1>New Team</h1>-->
+            <!--<form th:action="@{/team/add}" method="POST" th:object="${team}">
+                <div>
+                    <input type="text" th:field="*{name}" id="name" name="name" placeholder="Phone Number">
+                </div>
+                <div>
+                    <input type="password" th:field="*{memberCount}" id="count" name="count" placeholder="Password">                
+                </div>
+                <div>
+                    <button type="submit"> Login</button>
+                </div>
+            </form>-->
+
+            <form th:action="@{/account/add}" method="POST" th:object="${petAccount}">
+                <div>
+                    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                </div>
+                <div>
+                    <input type="password" th:field="*{password}" id="password" name="password" placeholder="Password">                
+                </div>
+                <div>
+                    <button type="submit"> Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

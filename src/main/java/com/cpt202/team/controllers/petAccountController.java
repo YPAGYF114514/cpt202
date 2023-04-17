@@ -22,7 +22,7 @@ import com.cpt202.team.services.petAccountService;
 //Spring Anotation
 @Controller
 @RequestMapping("/account")
-public class AccountController {
+public class petAccountController {
     @Autowired
     private petAccountService petAccountService;
 
@@ -36,7 +36,12 @@ public class AccountController {
     @GetMapping("/add")
     public String addAccount(Model model){
         model.addAttribute("petAccount", new petAccount());
-        return "addTeam";
+        return "Register";
+    }
+    @GetMapping("/login")
+    public String logIn(Model model){
+        model.addAttribute("petAccount", new petAccount());
+        return "logInPage";
     }
 
     @PostMapping("/add")

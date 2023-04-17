@@ -5,13 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "petAccount")
 public class petAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String phoneNumber;
-    private String password; // member_count
+    private String password; // password
 
     public petAccount() {
     }
@@ -29,16 +29,16 @@ public class petAccount {
     public void setId(int id) {
         this.id = id;
     }
-    public String getName() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
-    public void setName(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    public String getMemberCount() {
+    public String getPassword() {
         return password;
     }
-    public void setMemberCount(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }    
 }
