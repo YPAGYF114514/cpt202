@@ -30,7 +30,7 @@
             height:120%;
         }
 
-        input[type=text] {
+        input[type=tel] {
             width: 140%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -71,32 +71,43 @@
 <body>
     <div class="bg-image">
         <div class="input-container">
-            
-            <!--<h1>New Team</h1>-->
-            <!--<form th:action="@{/team/add}" method="POST" th:object="${team}">
-                <div>
-                    <input type="text" th:field="*{name}" id="name" name="name" placeholder="Phone Number">
-                </div>
-                <div>
-                    <input type="password" th:field="*{memberCount}" id="count" name="count" placeholder="Password">                
-                </div>
-                <div>
-                    <button type="submit"> Login</button>
-                </div>
-            </form>-->
 
-            <form th:action="@{/account/add}" method="POST" th:object="${petAccount}">
+            <form id="register" th:action="@{/account/add}" method="POST" th:object="${petAccount}" onsubmit="return sendSMSIfValidPhoneNumber(document.getElementById('phoneNumber').value);">
                 <div>
-                    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                    <!--<input type="text" th:field="*{phoneNumber}" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">-->
+                    <input type="tel" th:field="*{phoneNumber}" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
                 </div>
                 <div>
                     <input type="password" th:field="*{password}" id="password" name="password" placeholder="Password">                
                 </div>
                 <div>
-                    <button type="submit"> Login</button>
+                    <button type="submit"> submit</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>   
+        function sendSMSIfValidPhoneNumber(phoneNumber) {
+            //let form = document.getElementById("register")
+            //const phoneInput = form.elements.phoneNumber;
+            //const phoneNumber = phoneInput.value;
+
+            alert(phoneNumber)
+            const pattern = /^1\d{10}$/;
+
+            if (pattern.test(phoneNumber)) {
+                const randomCode = Math.floor(Math.random() * 900000) + 100000;
+                const smsText = `您的验证码为 ${randomCode}，请不要把验证码泄露给其他人。`;
+
+                // TODO: 在这里调用发送短信的 API
+                // sendSMS(phoneNumber, smsText);
+
+                console.log(`发送短信到 ${phoneNumber}，短信内容为：${smsText}`);
+                } else {
+                alert("电话号码格式不正确，请重新输入！");
+            }
+        }
+    </script>
 </body>
 </html>

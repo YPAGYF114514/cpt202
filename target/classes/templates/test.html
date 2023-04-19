@@ -1,72 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .bg-image {
-            background-image: url("images/bg.png");
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .input-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height:130%;
-        }
-
-        input[type=text] {
-            width: 110%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            text-align: left;
-        }
-
-        button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-    </style>
+    <title>更新密码</title>
 </head>
 <body>
-    <div class="bg-image">
-        <div class="input-container">
-            <!--<h1>New Team</h1>-->
-            <form th:action="@{/team/add}" method="POST" th:object="${team}">
-                <div>
-                    <input type="text" th:field="*{name}" id="name" name="name" placeholder="Team Name">
-                </div>
-                <div>
-                    <input type="text" th:field="*{memberCount}" id="count" name="count" placeholder="Member Count">                
-                </div>
-                <div>
-                    <button type="submit">Save</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <h1>更新账户密码</h1>
+    <form action="update_password.php" method="post">
+        <label for="username">Phone number：</label>
+        <input type="text" name="username" id="username" required>
+        <br><br>
+        <label for="new_password">New password：</label>
+        <input type="password" name="new_password" id="new_password" required>
+        <br><br>
+        <label for="confirm_password">Verify new password：</label>
+        <input type="password" name="confirm_password" id="confirm_password" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
