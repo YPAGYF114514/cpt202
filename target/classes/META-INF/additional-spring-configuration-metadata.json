@@ -1,0 +1,20 @@
+{
+    "properties": [
+      {
+        "name": "twilio.account.sid",
+        "type": "java.lang.String",
+        "description": "Twilio Account SID"
+      },
+      {
+        "name": "twilio.auth.token",
+        "type": "java.lang.String",
+        "description": "Twilio Auth Token"
+      },
+      {
+        "name": "twilio.phone.number",
+        "type": "java.lang.String",
+        "description": "Twilio Phone Number"
+      }
+    ]
+  }
+  

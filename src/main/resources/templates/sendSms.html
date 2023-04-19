@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send SMS</title>
+    <script>
+        async function sendSms() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+
+            try {
+                const response = await fetch('http://localhost:8080/sendSms', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ phone: phoneNumber, message: message })
+                });
+
+                if (response.ok) {
+                    alert('短信发送成功');
+                } else {
+                    const errorText = await response.text();
+                    alert('短信发送失败: ' + errorText);
+                }
+            } catch (error) {
+                alert('短信发送失败: ' + error.message);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>发送短信</h1>
+    <label>
+        手机号码:
+        <input type="text" id="phoneNumber" />
+    </label>
+    <br />
+    <label>
+        短信内容:
+        <input type="text" id="message" />
+    </label>
+    <br />
+    <button onclick="sendSms()">发送短信</button>
+</body>
+</html>
